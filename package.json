@@ -1,0 +1,11 @@
+{
+  "name" : "typesjs",
+  "description" : "What do you get the dynamic language who has everything?",
+  "url" : "http://typesjs.org",
+  "keywords" : ["types", "type"],
+  "author" : "Chris Antaki <chrisantaki@gmail.com>",
+  "repository" : {"type": "git", "url": "git://github.com/ChrisAntaki/typesjs.git"},
+  "main" : "types.js",
+  "version" : "0.1.0",
+  "license" : "MIT"
+}
