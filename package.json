@@ -1,6 +1,6 @@
 {
   "name" : "typesjs",
-  "description" : "What do you get the dynamic language who has everything?",
+  "description" : "What do you get the dynamic language who has everything? Easy type checking. Available in Node and browsers.",
   "url" : "http://typesjs.org",
   "keywords" : ["types", "type"],
   "author" : "Chris Antaki <chrisantaki@gmail.com>",
