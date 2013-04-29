@@ -26,7 +26,7 @@
         // Verify types
         var verified = false;
         for (var i = 0, len = types.length; i < len; i++) {
-            if (value.constructor === constructor) {
+            if (value.constructor === types[i]) {
                 verified = true;
                 break;
             }

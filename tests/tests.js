@@ -79,8 +79,8 @@ describe("types.js", function() {
 		});
 
 		it("Multiple types", function() {
-			assert.doesNotThrow(function() {
-				t(1, [String, Number]);
+			assert.throws(function() {
+				t([], [String, Number]);
 			});
 		});
 
