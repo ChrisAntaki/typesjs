@@ -6,6 +6,6 @@
   "author" : "Chris Antaki <chrisantaki@gmail.com>",
   "repository" : {"type": "git", "url": "git://github.com/ChrisAntaki/typesjs.git"},
   "main" : "types.js",
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "license" : "MIT"
 }
