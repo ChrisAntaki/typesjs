@@ -32,6 +32,12 @@ describe("types.js", function() {
 			});
 		});
 
+		it("Multiple types", function() {
+			assert.doesNotThrow(function() {
+				t(1, [String, Number]);
+			});
+		});
+
 		it("CustomType", function() {
 			var CustomType = function() {
 				this.custom = 2 * true;
@@ -69,6 +75,12 @@ describe("types.js", function() {
 		it("Object", function() {
 			assert.throws(function() {
 				t([], Object);
+			});
+		});
+
+		it("Multiple types", function() {
+			assert.doesNotThrow(function() {
+				t(1, [String, Number]);
 			});
 		});
 

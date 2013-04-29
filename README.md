@@ -1,42 +1,67 @@
 ```
- _                           _     
-| |                         (_)    
+ _                           _
+| |                         (_)
 | |_ _   _ _ __   ___  ___   _ ___ 
 | __| | | | '_ \ / _ \/ __| | / __|
 | |_| |_| | |_) |  __/\__ \_| \__ \
  \__|\__, | .__/ \___||___(_) |___/
-      __/ | |              _/ |    
-     |___/|_|             |__/     
+      __/ | |              _/ |
+     |___/|_|             |__/
 
 ```
 
-## How to Use
+`types.js` provides an easy, readable way to check types.
+
+## Simple usage
 
 ```js
-var echo = types(function(message) { // Wrap a function with types().
-    return message;
-})
-    .params(String) // Bind first parameter to String.
-    .returns(String); // Bind return to String.
-
-echo("Hellooo"); // Passes.
-echo(7); // Fails.
+t("", String);
+t([], String); // TypeError: Value was of an incorrect type.
 ```
 
-As you can see, usage is fairly simple.
+Just pass a `value` and a `constructor`.
 
-## More Options
+If there's a mismatch, a `TypeError` will be thrown.
+
+You can also pass an `Array` of constructors. This is one of several advanced features.
+
+## Advanced usage
+
+Using Node, require `typesjs`.
 
 ```js
-// Use a shorter syntax.
-var echo = types(function(message) {
-	return message;
-})
-	.p(String)
-	.r(String);
-
-// Disable checks.
-types.enabled = false;
+var t = require("typesjs");
 ```
 
-In the near future, visit: http://typesjs.org
+Multiple types. Pass an `Array` of constructors.
+
+```js
+t("I am not a number.", [Number, String]);
+```
+
+Optional checks. You may pass *"optional"* or *false* as the third parameter.
+This will allow *null* or *undefined* values.
+
+```js
+t(null, String, "optional");
+t(void 0, String, "optional");
+t(undefined, String, "optional");
+```
+
+Custom types. If you've got a reference to a type's `constructor`, you can test it!
+
+```js
+var CustomType = function() {
+  // ...
+};
+
+var instance = new CustomType();
+
+t(instance, CustomType);
+```
+
+Disable `types.js`, at any time.
+
+```js
+t.enabled = false;
+```
