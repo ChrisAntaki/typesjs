@@ -1,4 +1,6 @@
-(function() { // Start types.js
+(function(self) { // Start types.js
+    "use strict";
+
     var t = function(value, constructor, required) {
         // Skip check, if disabled.
         if (t.enabled === false) return false;
@@ -54,11 +56,11 @@
         module.exports = t;
     } else {
         // Browser
-        if (typeof this.t === "undefined") {
-            this.t = t;
+        if (typeof self.t === "undefined") {
+            self.t = t;
         }
-        if (typeof this.typesjs === "undefined") {
-            this.typesjs = t;
+        if (typeof self.typesjs === "undefined") {
+            self.typesjs = t;
         }
     }
 
