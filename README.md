@@ -27,12 +27,6 @@ You can also pass an `Array` of constructors. This is one of several advanced fe
 
 ## Advanced usage
 
-Using Node, require `typesjs`.
-
-```js
-var t = require("typesjs");
-```
-
 Multiple types. Pass an `Array` of constructors.
 
 ```js
@@ -64,4 +58,10 @@ Disable `types.js`, at any time.
 
 ```js
 t.enabled = false;
+```
+
+Using Node? `typesjs` is available on NPM.
+
+```js
+var t = require("typesjs");
 ```
