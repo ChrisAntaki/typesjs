@@ -16,18 +16,18 @@
 
 Just pass a `value` and a `constructor`. You can also pass an `Array` of constructors.
 
-If a `value` is null, or doesn't match a type, your function will be safely halted. (Optional values are supported too!)
+If a `value` is null, or doesn't match a type, your function is safely halted. (Optional values are supported too!)
 
 ### Example 1
 ```js
 // Simple checks.
 t("Nick Cage", String); // Passes
-t(1997, Number); // Passes
-t([], String); // TypeError. Your code will be safely halted.
+t(1997, Number);        // Passes
+t([], String);          // TypeError. Your code is safely halted.
 
-t("ConAir", [String, Array]); // Passes
+t("ConAir", [String, Array]);                 // Passes
 t([1989, "Vampire's Kiss"], [String, Array]); // Passes
-t({ConAir: "awesome"}, [String, Array]); // True, but still a TypeError.
+t({ConAir: "sucks"}, [String, Array]);        // TypeError
 ```
 
 ### Example 2
@@ -47,10 +47,9 @@ function sharedLoginFunction(usernameStr, passwordStr, ageNum) {
     // In this case, we don't want to move forward unless our parameters seem legit.
     t(usernameStr, String);
     t(passwordStr, String);
-    t(ageNum, Number);      // TypeError. Function is halted.
+    t(ageNum, Number); // TypeError. Let us waste no more cycles on this function.
 
-    // Alright, let's send the request!
-    $.register(usernameStr, passwordStr, ageNum);
+    // ...
 }
 
 ```
