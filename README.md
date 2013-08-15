@@ -14,16 +14,48 @@
 
 ## Simple usage
 
-```js
-t("", String);
-t([], String); // TypeError: Value was of an incorrect type.
-```
-
 Just pass a `value` and a `constructor`.
 
-If there's a mismatch, a `TypeError` will be thrown.
+You can also pass an `Array` of constructors.
 
-You can also pass an `Array` of constructors. This is one of several advanced features.
+If a `value` is null, or doesn't match a type, your function will be safely halted.
+
+(Optional values are supported too, as described later!)
+
+### Example 1
+```js
+t("Nick Cage", String);
+t([], String); // TypeError. Your code will be safely halted.
+
+t("ConAir", [String, Array]);
+t([1989, "Vampire's Kiss"], [String, Array]);
+t({ConAir: "awesome"}, [String, Array]); // True... but still a TypeError. Code will be halted.
+```
+
+### Example 2
+```js
+// Let's add checks for a shared login method.
+
+// Define variables.
+var usernameStr = "NickCage",
+    passwordStr = "winsatlife",
+    ageNum      = "eternal"; // This should be a number, nobody is immortal... right?
+
+// Execute function.
+sharedLoginFunction(usernameStr, passwordStr, ageNum);
+
+// Define function.
+function sharedLoginFunction(usernameStr, passwordStr, ageNum) {
+    // In this case, we don't want to move forward unless our parameters seem legit.
+    t(usernameStr, String);
+    t(passwordStr, String);
+    t(ageNum, Number);      // TypeError. Function is halted.
+
+    // Alright, let's send the request!
+    $.register(usernameStr, passwordStr, ageNum);
+}
+
+```
 
 ## Advanced usage
 

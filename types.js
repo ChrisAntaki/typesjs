@@ -29,6 +29,10 @@
         var verified = false;
         for (var i = 0, len = types.length; i < len; i++) {
             if (value.constructor === types[i]) {
+                if (isNaN(value) && types[i] === Number) {
+                    continue;
+                }
+
                 verified = true;
                 break;
             }
