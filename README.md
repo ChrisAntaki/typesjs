@@ -14,22 +14,19 @@
 
 ## Simple usage
 
-Just pass a `value` and a `constructor`.
+Just pass a `value` and a `constructor`. You can also pass an `Array` of constructors.
 
-You can also pass an `Array` of constructors.
-
-If a `value` is null, or doesn't match a type, your function will be safely halted.
-
-(Optional values are supported too, as described later!)
+If a `value` is null, or doesn't match a type, your function will be safely halted. (Optional values are supported too!)
 
 ### Example 1
 ```js
+// Simple checks.
 t("Nick Cage", String);
 t([], String); // TypeError. Your code will be safely halted.
 
 t("ConAir", [String, Array]);
 t([1989, "Vampire's Kiss"], [String, Array]);
-t({ConAir: "awesome"}, [String, Array]); // True... but still a TypeError. Code will be halted.
+t({ConAir: "awesome"}, [String, Array]); // True, but still a TypeError.
 ```
 
 ### Example 2
