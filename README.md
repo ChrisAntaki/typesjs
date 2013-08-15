@@ -21,7 +21,8 @@ If a `value` is null, or doesn't match a type, your function will be safely halt
 ### Example 1
 ```js
 // Simple checks.
-t("Nick Cage", String);
+t("Nick Cage", String); // Passes
+t(1997, Number); // Passes
 t([], String); // TypeError. Your code will be safely halted.
 
 t("ConAir", [String, Array]);
