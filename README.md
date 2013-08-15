@@ -27,7 +27,7 @@ t([], String);          // TypeError. Your code is safely halted.
 
 t("ConAir", [String, Array]);                 // Passes
 t([1989, "Vampire's Kiss"], [String, Array]); // Passes
-t({ConAir: "sucks"}, [String, Array]);        // TypeError
+t({category: "comedy"}, [String, Array]);     // TypeError
 ```
 
 ### Example 2
