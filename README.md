@@ -84,7 +84,7 @@ Disable `types.js`, at any time.
 t.enabled = false;
 ```
 
-Using Node? `typesjs` is available on NPM.
+Using Node? `typesjs` is available on NPM!
 
 ```js
 var t = require("typesjs");
