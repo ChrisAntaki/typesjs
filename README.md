@@ -32,19 +32,15 @@ t({cat: "comedy"}, [String, Array]); // TypeError
 
 ### Example 2
 ```js
-// Let's add checks for a shared login method.
+// Verify a function gets the right parameters.
 
-// Define variables.
 var usernameStr = "NickCage",
     passwordStr = "winsatlife",
     ageNum      = "eternal"; // This should be a number, nobody is immortal... right?
 
-// Execute function.
 sharedLoginFunction(usernameStr, passwordStr, ageNum);
 
-// Define function.
 function sharedLoginFunction(usernameStr, passwordStr, ageNum) {
-    // In this case, we don't want to move forward unless our parameters seem legit.
     t(usernameStr, String);
     t(passwordStr, String);
     t(ageNum, Number); // TypeError. Let us waste no more cycles on this function.
