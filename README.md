@@ -33,7 +33,6 @@ t({cat: "comedy"}, [String, Array]); // TypeError
 ### Example 2
 ```js
 // Verify a function gets the right parameters.
-
 var usernameStr = "NickCage",
     passwordStr = "winsatlife",
     ageNum      = "eternal"; // This should be a number, nobody is immortal... right?
