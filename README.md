@@ -25,8 +25,8 @@ t("Nick Cage", String); // Passes
 t(1997, Number); // Passes
 t([], String); // TypeError. Your code will be safely halted.
 
-t("ConAir", [String, Array]);
-t([1989, "Vampire's Kiss"], [String, Array]);
+t("ConAir", [String, Array]); // Passes
+t([1989, "Vampire's Kiss"], [String, Array]); // Passes
 t({ConAir: "awesome"}, [String, Array]); // True, but still a TypeError.
 ```
 
