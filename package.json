@@ -1,11 +1,23 @@
 {
-  "name" : "typesjs",
-  "description" : "What do you get the dynamic language who has everything? Easy type checking. Available in Node and browsers.",
-  "url" : "http://typesjs.org",
-  "keywords" : ["types", "type"],
-  "author" : "Chris Antaki <chrisantaki@gmail.com>",
-  "repository" : {"type": "git", "url": "git://github.com/ChrisAntaki/typesjs.git"},
-  "main" : "types.js",
-  "version" : "1.0.0",
-  "license" : "MIT"
+  "name": "typesjs",
+  "description": "What do you get the dynamic language who has everything? Easy type checking. Available in Node and browsers.",
+  "url": "http://typesjs.org",
+  "keywords": [
+    "types",
+    "type"
+  ],
+  "author": "Chris Antaki <chrisantaki@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ChrisAntaki/typesjs.git"
+  },
+  "main": "types.js",
+  "version": "1.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "~1.14.0"
+  },
+  "scripts": {
+    "test": "mocha tests/"
+  }
 }
