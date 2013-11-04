@@ -44,15 +44,16 @@
 
     // Throw an error, and use `console.error` if possible.
     var error = function(message) {
-        if (typeof console === "object" && typeof console.error === "function") {
+        if (!silent && typeof console === "object" && typeof console.error === "function") {
             console.error(message);
         }
 
         throw new TypeError(message);
     };
 
-    // This can be changed at any time.
+    // These settings can be changed at any time.
     t.enabled = true;
+    t.silent = false;
 
     // Export
     if (typeof module === "object" && typeof module.exports === "object") {

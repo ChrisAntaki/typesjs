@@ -1,6 +1,9 @@
 var assert = require('assert'),
 	t = require('../types');
 
+// Shh
+t.silent = true;
+
 describe("types.js", function() {
 	describe("Pass", function() {
 		it("String", function() {
