@@ -49,7 +49,7 @@ t("23", [Number, String]);
 // You may silence `types.js`, to prevent console messages.
 t.silent = true;
 
-// Lastly, may disable it at any time.
+// Lastly, you may disable it at any time.
 t.enabled = false;
 
 ```
