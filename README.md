@@ -31,7 +31,7 @@ t([], String); // TypeError is thrown.
 try {
     t([], String);
 } catch(e) {
-    alert('Hey, I that was not a String, man.');
+    alert('Hey, that was not a String, man.');
 }
 
 // Moving on!
