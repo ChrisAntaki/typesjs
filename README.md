@@ -34,8 +34,6 @@ try {
     alert('Hey, that was not a String, man.');
 }
 
-// Moving on!
-
 // Custom types are supported.
 var CustomType = function() {};
 var instance = new CustomType();
