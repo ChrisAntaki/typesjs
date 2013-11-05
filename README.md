@@ -39,18 +39,18 @@ var CustomType = function() {};
 var instance = new CustomType();
 t(instance, CustomType);
 
-// You can also allow multiple types.
-t("23", [Number, String]);
-
-// You may disable `types.js` at any time.
-t.enabled = false;
-
-// You may also silence it, to prevent console messages.
-t.silent = true;
-
 // Lastly, for optional values, just pass "optional" or false as the third parameter.
 t(void 0, String, false);
-t(void 0, String, "optional"); // More readable perhaps. ;)
+t(void 0, String, "optional"); // More readable, to my eyes.
+
+// You can always allow multiple types.
+t("23", [Number, String]);
+
+// You may silence `types.js`, to prevent console messages.
+t.silent = true;
+
+// Lastly, may disable it at any time.
+t.enabled = false;
 
 ```
 
