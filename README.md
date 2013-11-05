@@ -39,7 +39,7 @@ var CustomType = function() {};
 var instance = new CustomType();
 t(instance, CustomType);
 
-// Lastly, for optional values, just pass "optional" or false as the third parameter.
+// For optional values, just pass "optional" or false as the third parameter.
 t(void 0, String, false);
 t(void 0, String, "optional"); // More readable, to my eyes.
 
