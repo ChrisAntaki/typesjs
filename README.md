@@ -10,82 +10,50 @@
 
 ```
 
-`types.js` provides an easy, readable way to check types.
+Easy type checking, in Node & browsers.
 
-## Simple usage
+## Shall we begin...
 
-Just pass a `value` and a `constructor`. You can also pass an `Array` of constructors.
-
-If a `value` is null, or doesn't match a type, your function is safely halted. (Optional values are supported too!)
-
-### Example 1
 ```js
-// Simple checks.
-t("Nick Cage", String); // Passes
-t(1997, Number);        // Passes
-t([], String);          // TypeError. Your code is safely halted.
+// Let's verify some variables are of the correct type.
+t("String", String);
+t(23, Number);
+t([], Array);
 
-t("ConAir", [String, Array]);        // Passes
-t([1989], [String, Array]);          // Passes
-t({cat: "comedy"}, [String, Array]); // TypeError
-```
+// Great! They all passed.
 
-### Example 2
-```js
-// Verify a function's parameters.
-var usernameStr = "NickCage",
-    passwordStr = "winsatlife",
-    ageNum      = "eternal"; // This should be a number, nobody is immortal... right?
+// What if there's a mismatch?
+t([], String); // TypeError is thrown.
 
-sharedLoginFunction(usernameStr, passwordStr, ageNum);
+// Our code is safely halted.
 
-function sharedLoginFunction(usernameStr, passwordStr, ageNum) {
-    t(usernameStr, String);
-    t(passwordStr, String);
-    t(ageNum, Number); // TypeError. Let us waste no more cycles on this function.
-
-    // ...
+// To catch the exception, use a try/catch statement.
+try {
+    t([], String);
+} catch(e) {
+    alert('Hey, I that was not a String, man.');
 }
 
-```
+// Moving on!
 
-## Advanced usage
-
-Multiple types. Pass an `Array` of constructors.
-
-```js
-t("I am not a number.", [Number, String]);
-```
-
-Optional checks. You may pass *"optional"* or *false* as the third parameter.
-This will allow *null* or *undefined* values.
-
-```js
-t(null, String, "optional");
-t(void 0, String, "optional");
-t(undefined, String, "optional");
-```
-
-Custom types. If you've got a reference to a type's `constructor`, you can test it!
-
-```js
-var CustomType = function() {
-  // ...
-};
-
+// Custom types are supported.
+var CustomType = function() {};
 var instance = new CustomType();
-
 t(instance, CustomType);
-```
 
-Disable `types.js`, at any time.
+// You can also allow multiple types.
+t("23", [Number, String]);
 
-```js
+// You may disable `types.js` at any time.
 t.enabled = false;
+
+// You may also silence it, to prevent console messages.
+t.silent = true;
+
+// Lastly, for optional values, just pass "optional" or false as the third parameter.
+t(void 0, String, false);
+t(void 0, String, "optional"); // More readable perhaps. ;)
+
 ```
 
-Using Node? `typesjs` is available on NPM!
-
-```js
-var t = require("typesjs");
-```
+This package is available through npm, as "typesjs".
