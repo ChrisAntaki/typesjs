@@ -56,4 +56,4 @@ t.enabled = false;
 
 ```
 
-This package is available through npm, as "typesjs".
+This package is available through npm, as `typesjs`
