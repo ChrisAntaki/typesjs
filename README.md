@@ -43,8 +43,6 @@ t(1999, String); // Returns false.
 ```
 
 If you disable errors, `typesjs` will return a `boolean` based on the match.
-```
-
 
 ### What if I do like errors?
 
