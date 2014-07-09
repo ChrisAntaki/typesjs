@@ -63,8 +63,8 @@
 
     // These settings can be changed at any time.
     t.enabled = true;
-    t.silent = false;
     t.errors = true;
+    t.silent = false;
 
     // Export
     if (typeof module === "object" && typeof module.exports === "object") {
