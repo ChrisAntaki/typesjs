@@ -5,6 +5,9 @@ var assert = require('assert'),
 t.silent = true;
 
 describe("types.js", function() {
+
+
+
 	describe("Pass", function() {
 		it("String", function() {
 			assert.doesNotThrow(function() {
@@ -102,4 +105,35 @@ describe("types.js", function() {
 			});
 		});
 	});
+
+
+
+	describe("Settings", function() {
+		beforeEach(function() {
+			t.enabled = true;
+			t.errors = true;
+			t.silent = false;
+		});
+
+		it("enabled", function() {
+			t.enabled = false;
+
+			assert.doesNotThrow(function() {
+				t(1999, String);
+			});
+		});
+
+		it("errors", function() {
+			t.errors = false;
+
+			assert.doesNotThrow(function() {
+				t(1999, String);
+			});
+			assert.equal(t(1999, Number), true);
+			assert.equal(t(1999, String), false);
+		});
+	});
+
+
+
 });
