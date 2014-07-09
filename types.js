@@ -11,7 +11,7 @@
         // Check for presence of value
         if (typeof value === "undefined" || value === null) {
             if (!optional) {
-                error("Value is null or undefined.");
+                return error("Value is null or undefined.");
             } else {
                 return true;
             }
