@@ -1,7 +1,6 @@
 {
   "name": "typesjs",
-  "description": "What do you get the dynamic language who has everything? Easy type checking. Available in Node and browsers.",
-  "url": "http://typesjs.org",
+  "description": "Easy type checking, in Node & browsers.",
   "keywords": [
     "types",
     "type"
