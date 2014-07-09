@@ -38,7 +38,11 @@
             }
         }
         if (!verified) {
-            return error("Value was of an incorrect type.");
+            var message = "Value was of an incorrect type.";
+            if (constructor && constructor.name) {
+                message += " Expecting '" + constructor.name + "'.";
+            }
+            return error(message);
         }
 
         return true;
