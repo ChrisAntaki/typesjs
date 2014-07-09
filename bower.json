@@ -1,0 +1,25 @@
+{
+  "name": "typesjs",
+  "version": "1.0.0",
+  "homepage": "https://github.com/ChrisAntaki/typesjs",
+  "authors": [
+    "Chris Antaki <ChrisAntaki@gmail.com>"
+  ],
+  "description": "Easy type checking, in Node & browsers.",
+  "main": "types.js",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "types"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
