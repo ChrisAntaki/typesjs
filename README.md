@@ -31,7 +31,7 @@ t([], Array);
 t([], String); // Throws a TypeError.
 ```
 
-If you need a variable to be a `String`, for example, `typesjs` can halt your code safely when it's not.
+If you need a variable to be a `String`, for example, typesjs can halt your code safely when it's not.
 
 ### What if I dislike errors?
 
@@ -42,7 +42,7 @@ t('Lorem', String); // Returns true.
 t(1999, String); // Returns false.
 ```
 
-If you disable errors, `typesjs` will return a `boolean` based on the match.
+If you disable errors, typesjs will return a `boolean` based on the match.
 
 ### What if I do like errors?
 
@@ -86,11 +86,15 @@ The third parameter is `required`. If you pass it `false`, or `"optional"`, that
 t(undefined, String, "optional"); // Returns true.
 ```
 
+Passing `"optional"` is more verbose, but perhaps more readable.
+
 ### What if I want to allow multiple types?
 
 ```js
 t("23", [Number, String]);
 ```
+
+Just pass an array of types.
 
 ### What if I want to disable typesjs, during runtime?
 
@@ -98,8 +102,16 @@ t("23", [Number, String]);
 t.enabled = false;
 ```
 
-### Great, one last thing. Can I disable the console logs, when there's a type mismatch?
+When disabled, typesjs will always return `true`.
+
+### What if I'd like to disable the console logs?
 
 ```js
 t.silent = true;
 ```
+
+Normally, when there's an issue, typesjs will use `console.error` to describe it. By setting the `silent` attribute to true, this can be disabled.
+
+- - -
+
+Feel free to make a GitHub issue, or pull request. Thanks.
