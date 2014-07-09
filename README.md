@@ -12,48 +12,100 @@ Y88b. Y88b 888888 d88PY8b.         X88d8b  888     X88
        "Y88P" 888                       888P"          
 ```
 
-Easy type checking, in Node & browsers.
+### Installation
 
-## Let's check it out!
+```sh
+npm install typesjs # Node
+bower install typesjs # Browser
+```
+
+### What can TypesJS do for me?
 
 ```js
-// Let's verify some variables are of the correct type.
+var t = require('typesjs');
+
 t("String", String);
 t(23, Number);
 t([], Array);
 
-// Great! They all passed.
+t([], String); // Throws a TypeError.
+```
 
-// What if there's a mismatch?
-t([], String); // TypeError is thrown.
+If you need a variable to be a `String`, for example, `typesjs` can halt your code safely when it's not.
+```
 
-// Our code is safely halted.
+### What if I dislike errors?
 
-// To catch the exception, use a try/catch statement.
+```js
+t.errors = false;
+
+t('Lorem', String); // Returns true.
+t(1999, String); // Returns false.
+```
+
+If you disable errors, `typesjs` will return a `boolean` based on the match.
+```
+
+
+### What if I do like errors?
+
+```js
 try {
     t([], String);
 } catch(e) {
-    alert('Hey, that was not a String, man.');
+    // ...
 }
-
-// Custom types are supported.
-var CustomType = function() {};
-var instance = new CustomType();
-t(instance, CustomType);
-
-// For optional values, just pass "optional" or false as the third parameter.
-t(void 0, String, false);
-t(void 0, String, "optional"); // More readable, to my eyes.
-
-// You can always allow multiple types.
-t("23", [Number, String]);
-
-// You may silence `types.js`, to prevent console messages.
-t.silent = true;
-
-// Lastly, you may disable it at any time.
-t.enabled = false;
-
 ```
 
-This package is available through npm, as `typesjs`
+`try/catch` blocks are your friend here.
+```
+
+### What if I make my own types?
+
+```js
+function Message(text) {
+	this.text = text;
+}
+var message = new Message('Lorem');
+t(message, Message);
+```
+
+Custom types are fully supported.
+
+### What if a value is null or undefined?
+
+```js
+t(undefined, String); // Throws a TypeError.
+```
+
+### What if a value isn't required though?
+
+```js
+t(undefined, String, false); // Returns true.
+```
+
+The third parameter is `required`. If you pass it `false`, or `"optional"`, that will allow for `null` and `undefined` values.
+
+```js
+t(undefined, String, "optional"); // Returns true.
+```
+
+### What if I want to allow multiple types?
+
+```js
+t("23", [Number, String]);
+```
+
+### What if I want to disable typesjs, during runtime?
+
+```js
+t.enabled = false;
+```
+
+### Great, one last thing. Can I disable the console logs, when there's a type mismatch?
+
+```js
+t.silent = true;
+```
+
+Enjoy!
