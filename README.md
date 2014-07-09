@@ -32,7 +32,6 @@ t([], String); // Throws a TypeError.
 ```
 
 If you need a variable to be a `String`, for example, `typesjs` can halt your code safely when it's not.
-```
 
 ### What if I dislike errors?
 
@@ -107,5 +106,3 @@ t.enabled = false;
 ```js
 t.silent = true;
 ```
-
-Enjoy!
