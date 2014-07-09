@@ -57,7 +57,6 @@ try {
 ```
 
 `try/catch` blocks are your friend here.
-```
 
 ### What if I make my own types?
 
