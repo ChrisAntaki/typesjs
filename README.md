@@ -80,7 +80,7 @@ t(undefined, String); // Throws a TypeError.
 t(undefined, String, false); // Returns true.
 ```
 
-The third parameter is `required`. If you pass it `false`, or `"optional"`, that will allow for `null` and `undefined` values.
+Just pass `false` or `"optional"` as the third parameter. This will allow for `null` and `undefined` values.
 
 ```js
 t(undefined, String, "optional"); // Returns true.
