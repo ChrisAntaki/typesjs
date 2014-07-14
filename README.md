@@ -1,21 +1,21 @@
 ```
-888                                        d8b         
-888                                        Y8P         
-888                                                    
-888888888  88888888b.  .d88b. .d8888b     8888.d8888b  
-888   888  888888 "88bd8P  Y8b88K         "88888K      
-888   888  888888  88888888888"Y8888b.     888"Y8888b. 
-Y88b. Y88b 888888 d88PY8b.         X88d8b  888     X88 
- "Y888 "Y8888888888P"  "Y8888  88888P'Y8P  888 88888P' 
-           888888                          888         
-      Y8b d88P888                         d88P         
-       "Y88P" 888                       888P"          
+888                                                  d8b
+888                                                  Y8P
+888
+888888  888  888  88888b.    .d88b.   .d8888b       8888 .d8888b
+888     888  888  888 "88b  d8P  Y8b  88K           "888 88K
+888     888  888  888  888  88888888  "Y8888b.       888 "Y8888b.
+Y88b.   Y88b 888  888 d88P  Y8b.           X88  d8b  888      X88
+ "Y888   "Y88888  88888P"    "Y8888   "88888P'  Y8P  888 "88888P'
+             888  888                                888
+        Y8b d88P  888                               d88P
+         "Y88P"   888                             888P"         
 ```
 
 ### Installation
 
 ```sh
-npm install typesjs # Node
+npm install typesjs   # Node
 bower install typesjs # Browser
 ```
 
@@ -39,7 +39,7 @@ If you need a variable to be a `String`, for example, typesjs can halt your code
 t.errors = false;
 
 t('Lorem', String); // Returns true.
-t(1999, String); // Returns false.
+t(1999, String);    // Returns false.
 ```
 
 If you disable errors, typesjs will return a `boolean` based on the match.
