@@ -3,12 +3,11 @@
 
     var t = function(value, constructor, options) {
         // Evaluate options
-        if (options !== undefined && options !== {}) {
-            options.enabled = options.enabled || true;
-            options.errors = options.errors || false;
-            options.silent = options.silent || false;
-            options.required = options.required || false;
-        }
+        options = options || {};
+        options.enabled = options.enabled || true;
+        options.errors = options.errors || false;
+        options.silent = options.silent || false;
+        options.required = options.required || false;
 
         // Throw an error, and use `console.error` if possible.
         var error = function(message) {
