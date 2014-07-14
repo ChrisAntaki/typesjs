@@ -15,7 +15,7 @@ Y88b.   Y88b 888  888 d88P  Y8b.           X88  d8b  888      X88
 ### Installation
 
 ```sh
-npm install typesjs # Node
+npm install typesjs   # Node
 bower install typesjs # Browser
 ```
 
@@ -39,7 +39,7 @@ If you need a variable to be a `String`, for example, typesjs can halt your code
 t.errors = false;
 
 t('Lorem', String); // Returns true.
-t(1999, String); // Returns false.
+t(1999, String);    // Returns false.
 ```
 
 If you disable errors, typesjs will return a `boolean` based on the match.
