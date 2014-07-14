@@ -1,16 +1,30 @@
 (function(self) { // Start types.js
     "use strict";
 
-    var t = function(value, constructor, required) {
-        // Skip check, if disabled.
-        if (t.enabled === false) return true;
+    var t = function(value, constructor, options) {
+        // Evaluate options
+        options = options || {};
+        options.enabled = options.enabled === false;
+        options.errors = options.errors === true;
+        options.silent = options.silent === true;
+        options.required = options.required === true;
 
-        // Determine if this value is optional.
-        var optional = (required === false) || (required === "optional");
+        // Throw an error, and use `console.error` if possible.
+        var error = function(message) {
+            if (!options.silent && typeof console === "object" && typeof console.error === "function") {
+                console.error(message);
+            }
+
+            if (options.errors) {
+                throw new TypeError(message);
+            } else {
+                return false;
+            }
+        };
 
         // Check for presence of value
         if (typeof value === "undefined" || value === null) {
-            if (!optional) {
+            if (!options.required) {
                 return error("Value is null or undefined.");
             } else {
                 return true;
@@ -48,24 +62,6 @@
         return true;
     };
 
-    // Throw an error, and use `console.error` if possible.
-    var error = function(message) {
-        if (!t.silent && typeof console === "object" && typeof console.error === "function") {
-            console.error(message);
-        }
-
-        if (t.errors) {
-            throw new TypeError(message);
-        } else {
-            return false;
-        }
-    };
-
-    // These settings can be changed at any time.
-    t.enabled = true;
-    t.errors = true;
-    t.silent = false;
-
     // Export
     if (typeof module === "object" && typeof module.exports === "object") {
         // Node
@@ -79,5 +75,4 @@
             self.typesjs = t;
         }
     }
-
 })(this); // End types.js
