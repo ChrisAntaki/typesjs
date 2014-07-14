@@ -4,10 +4,10 @@
     var t = function(value, constructor, options) {
         // Evaluate options
         options = options || {};
-        options.enabled = options.enabled === false? false: true;
-        options.errors = options.errors === true? true: false;
-        options.silent = options.silent === true? true: false;
-        options.required = options.required === true? true: false;
+        options.enabled = options.enabled === false;
+        options.errors = options.errors === true;
+        options.silent = options.silent === true;
+        options.required = options.required === true;
 
         // Throw an error, and use `console.error` if possible.
         var error = function(message) {
