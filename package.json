@@ -6,12 +6,15 @@
     "type"
   ],
   "author": "Chris Antaki <chrisantaki@gmail.com>",
+  "contributors": [
+    "Linus Unnebäck <linus@folkdatorn.se>"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/ChrisAntaki/typesjs.git"
   },
   "main": "types.js",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "license": "MIT",
   "devDependencies": {
     "mocha": "~1.14.0"
