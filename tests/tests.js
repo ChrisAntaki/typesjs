@@ -1,9 +1,6 @@
 var assert = require('assert'),
 	t = require('../types');
 
-// Shh
-t.silent = true;
-
 describe("types.js", function() {
 
 
@@ -109,28 +106,26 @@ describe("types.js", function() {
 
 
 	describe("Settings", function() {
-		beforeEach(function() {
-			t.enabled = true;
-			t.errors = true;
-			t.silent = false;
-		});
-
 		it("enabled", function() {
 			t.enabled = false;
 
 			assert.doesNotThrow(function() {
 				t(1999, String);
 			});
+
+			t.enabled = true;
 		});
+	});
 
-		it("errors", function() {
-			t.errors = false;
 
+
+	describe("check", function() {
+		it("returns", function() {
 			assert.doesNotThrow(function() {
-				t(1999, String);
+				t.check(1999, String);
 			});
-			assert.equal(t(1999, Number), true);
-			assert.equal(t(1999, String), false);
+			assert.equal(t.check(1999, Number), true);
+			assert.equal(t.check(1999, String), false);
 		});
 	});
 

@@ -9,7 +9,7 @@ Y88b.   Y88b 888  888 d88P  Y8b.           X88  d8b  888      X88
  "Y888   "Y88888  88888P"    "Y8888   "88888P'  Y8P  888 "88888P'
              888  888                                888
         Y8b d88P  888                               d88P
-         "Y88P"   888                             888P"         
+         "Y88P"   888                             888P"
 ```
 
 ### Installation
@@ -36,13 +36,11 @@ If you need a variable to be a `String`, for example, typesjs can halt your code
 ### What if I dislike errors?
 
 ```js
-t.errors = false;
-
-t('Lorem', String); // Returns true.
-t(1999, String);    // Returns false.
+t.check('Lorem', String); // Returns true.
+t.check(1999, String);    // Returns false.
 ```
 
-If you disable errors, typesjs will return a `boolean` based on the match.
+`check` will return a `boolean` based on the match.
 
 ### What if I do like errors?
 
@@ -104,13 +102,8 @@ t.enabled = false;
 
 When disabled, typesjs will always return `true`.
 
-### What if I'd like to disable the console logs?
-
-```js
-t.silent = true;
-```
-
-Normally, when there's an issue, typesjs will use `console.error` to describe it. By setting the `silent` attribute to true, this can be disabled.
+**Note:** This changes the global setting for all the code using TypesJS. Only
+use this in applications and **never** in libraries.
 
 - - -
 

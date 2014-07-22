@@ -1,70 +1,55 @@
 (function(self) { // Start types.js
     "use strict";
 
-    var t = function(value, constructor, required) {
+    var t = function TypesJS (value, constructor, required) {
         // Skip check, if disabled.
-        if (t.enabled === false) return true;
+        if (t.enabled === false) { return true; }
 
-        // Determine if this value is optional.
-        var optional = (required === false) || (required === "optional");
+        // Check if value is valid.
+        if (t.check(value, constructor, required)) { return true; }
+
+        if (constructor && constructor.name) {
+            throw new TypeError(value.toString() + ' is not a ' + constructor.name);
+        } else {
+            throw new TypeError(value.toString() + ' is of an incorrect type');
+        }
+
+    };
+
+    t.check = function check (value, constructor, required) {
+        // Skip check, if disabled
+        if (t.enabled === false) { return true; }
 
         // Check for presence of value
         if (typeof value === "undefined" || value === null) {
-            if (!optional) {
-                return error("Value is null or undefined.");
-            } else {
-                return true;
-            }
+            // Determine if this value is optional
+            return (required === false) || (required === "optional");
         }
 
-        // Check for presence of constructor.
+        // Check for presence of constructor
         if (typeof constructor === "undefined") {
-            return error("Constructor was not found.");
+            throw new Error("No constructor was specified");
         }
 
-        // Create an array of types.
+        // Create an array of types
         var types = [].concat(constructor);
 
-        // Verify types
-        var verified = false;
+        // Check if the value is of valid type
         for (var i = 0, len = types.length; i < len; i++) {
             if (value.constructor === types[i]) {
                 if (isNaN(value) && types[i] === Number) {
                     continue;
                 }
 
-                verified = true;
-                break;
+                return true;
             }
         }
-        if (!verified) {
-            var message = "Value was of an incorrect type.";
-            if (constructor && constructor.name) {
-                message += " Expecting '" + constructor.name + "'.";
-            }
-            return error(message);
-        }
 
-        return true;
+        return false;
     };
 
-    // Throw an error, and use `console.error` if possible.
-    var error = function(message) {
-        if (!t.silent && typeof console === "object" && typeof console.error === "function") {
-            console.error(message);
-        }
-
-        if (t.errors) {
-            throw new TypeError(message);
-        } else {
-            return false;
-        }
-    };
-
-    // These settings can be changed at any time.
+    // These settings can be changed at any time
     t.enabled = true;
-    t.errors = true;
-    t.silent = false;
 
     // Export
     if (typeof module === "object" && typeof module.exports === "object") {
