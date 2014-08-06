@@ -70,6 +70,9 @@ describe("types.js", function() {
 			assert.throws(function() {
 				t([], Number);
 			});
+			assert.throws(function() {
+				t(NaN, Number);
+			});
 		});
 
 		it("Array", function() {
