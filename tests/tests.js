@@ -115,6 +115,7 @@ describe("types.js", function() {
 				t(undefined, String, false);
 			});
 		});
+
 		it("required = 'optional'", function() {
 			assert.doesNotThrow(function() {
 				t(null, String, 'optional');
