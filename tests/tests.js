@@ -108,6 +108,23 @@ describe("types.js", function() {
 
 
 
+	describe("Options", function() {
+		it("required = false", function() {
+			assert.doesNotThrow(function() {
+				t(null, String, false);
+				t(undefined, String, false);
+			});
+		});
+		it("required = 'optional'", function() {
+			assert.doesNotThrow(function() {
+				t(null, String, 'optional');
+				t(undefined, String, 'optional');
+			});
+		});
+	});
+
+
+
 	describe("Settings", function() {
 		it("enabled", function() {
 			t.enabled = false;
