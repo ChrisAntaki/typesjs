@@ -1,0 +1,5 @@
+Authors ordered by first contribution.
+
+Chris Antaki <chrisantaki@gmail.com>
+Jan Buschtöns <buschtoens@gmail.com>
+Linus Unnebäck <linus@folkdatorn.se>
