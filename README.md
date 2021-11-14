@@ -1,3 +1,5 @@
+Note from 2021: Just use [TypeScript](https://nodejs.dev/learn/nodejs-with-typescript) lol
+
 ```
 888                                                  d8b
 888                                                  Y8P
